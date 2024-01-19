@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMA 2</title>
+    <style>
+      
+        @import url('https://fonts.googleapis.com/css?family=Orbitron');
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgb(213, 250, 145) 0%, rgb(250, 217, 145) 100%);
+            color: black;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        
+        .section {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: linear-gradient(90deg, white 0%, grey 100%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            animation: fade-in 0.5s;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        
+        #slider:target {
+            display: block;
+        }
+
+        #form:target {
+            display: block;
+        }
+
+        #list:target {
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 50px;
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        body {
+            background: linear-gradient(90deg, #ffdae1 0%, #d4dcff 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TEMA 2</h1>
+    <h2>Pentru a acesa individual una din cerinte, da click pe unul din butoanele de mai jos:</h2>
+    <a href="slider.html" class="button">SLIDER DE IMAGINI</a>
+    <a href="form.html" class="button">VALIDARE FORUMULAR</a>
+    <a href="todolist.html" class="button">LISTA DE SARCINI</a>
+</body>
+
+</html>
