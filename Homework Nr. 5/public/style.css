@@ -1,0 +1,101 @@
+body {
+  background: linear-gradient(90deg, #ffdae1 0%, #d4dcff 100%);
+
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+  margin: 20px;
+}
+
+#note-list-container,
+#note-edit-container {
+  width: 40%;
+  margin: 20px auto; 
+}
+
+#create-note-button,
+#delete-all-button,
+#save-note-button,
+#delete-note-button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #2196f3;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+#create-note-button:active,
+#delete-all-button:active,
+#save-note-button:active,
+#delete-note-button:active {
+  transform: scale(0.9);
+}
+
+#note-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#note-list {
+  list-style: none;
+  padding: 0;
+}
+
+.note-item {
+  width: 90%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #eee;
+  color: #333;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: left;
+  padding-left: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.note-item:hover {
+  background-color: #ddd;
+}
+
+#note-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#note-date {
+  font-size: 18px;
+}
+
+#note-text {
+  width: 90%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+  background-color: #eee;
+  color: #333;
+  font-size: 18px;
+  padding: 10px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+  resize: none;
+  outline: none; 
+}
+
+#note-text:focus {
+  border: 2px ; 
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Aplicatie Notite</h1>
+    <div id="note-list-container">
+        <button id="create-note-button" onclick="createNote()">Creează o notiță nouă</button>
+        <button id="delete-all-button" onclick="deleteAllNotes()">Șterge toate notițele</button>
+        <p id="note-count">Ai 0 notițe</p>
+        <ul id="note-list"></ul>
+    </div>
+    <div id="note-edit-container">
+        <button id="save-note-button" onclick="saveNote()">Salvează notița</button>
+        <button id="delete-note-button" onclick="deleteNote()">Șterge notița</button>
+        <h2 id="note-title">Notiță Nouă</h2>
+        <p id="note-date">Data: </p>
+        <p id="note-id" hidden></p>
+        <textarea id="note-text" placeholder="Scrie aici notița"></textarea>
+    </div>
+</body>
+</html>
