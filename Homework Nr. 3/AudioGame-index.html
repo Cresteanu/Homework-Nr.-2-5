@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joc de memorie audio</title>
+  <style>
+    body {
+      background: linear-gradient(90deg, #ffdae1 0%, #d4dcff 100%);
+   
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .game-container {
+      text-align: center;
+    }
+
+    .sound-button {
+      width: 80px;
+      height: 80px;
+      background-color: #3498db;
+      border: 3px solid #2980b9;
+      margin: 10px;
+      cursor: pointer;
+      outline: none;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    .sound-button:hover {
+      background-color: #2980b9;
+    }
+
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>Joc de memorie audio</h1>
+    
+    <div class="sound-container">
+      <button class="sound-button" onclick="checkSound('dog')">Caine</button>
+      <button class="sound-button" onclick="checkSound('cat')">Pisica</button>
+      <button class="sound-button" onclick="checkSound('bird')">Pasare</button>
+      <button class="sound-button" onclick="checkSound('cow')">Vaca</button>
+      <button class="sound-button" onclick="checkSound('sheep')">Oaie</button>
+    </div>
+  </div>
+  <script>
+    var sounds = ["dog", "cat", "bird", "cow", "sheep"];
+    var sequence = [];
+    var index = 0;
+    var level = 1;
+
+    function playSound(name) {
+      var audio = new Audio();
+      audio.src = "sounds/" + name + ".mp3";
+      audio.play();
+    }
+
+    function randomSound() {
+      var random = Math.floor(Math.random() * sounds.length);
+      return sounds[random];
+    }
+
+    function nextSound() {
+      var sound = randomSound();
+      sequence.push(sound);
+      playSound(sound);
+    }
+
+    function checkSound(sound) {
+      if (sound == sequence[index]) {
+        index++;
+        if (index == sequence.length) {
+          level++;
+          if (level <= 10) {
+            alert("Bravo! Ai trecut la nivelul " + level);
+            setTimeout(function() {
+              sequence = [];
+              index = 0;
+              nextSound();
+            }, 1000);
+          } else {
+            alert("Ai castigat!");
+          }
+        }
+      } else {
+        alert("Ai greșit! Jocul s-a terminat. Ai ajuns la nivelul " + level);
+        setTimeout(function() {
+          sequence = [];
+          index = 0;
+          level = 1; 
+          nextSound();
+        }, 1000);
+      }
+    }
+
+    function startGame() {
+      alert("Bine ai venit la jocul de memorie audio! Ascultă cu atenție sunetele și repetă-le în ordine. Succes!");
+      nextSound();
+    }
+
+    startGame();
+  </script>
+</body>
+</html>

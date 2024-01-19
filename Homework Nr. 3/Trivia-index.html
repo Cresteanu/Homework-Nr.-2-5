@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia</title>
+  <style>
+    body {
+        background: linear-gradient(90deg, #ffdae1 0%, #d4dcff 100%);
+       font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      margin: 20px;
+    }
+
+    .title {
+      margin-bottom: 20rem;
+      font-size: 100px;
+    }
+
+    .question-container {
+      margin: 20px;
+    }
+
+    .question {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .option-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 20px;
+    }
+
+    .option {
+      width: 200px;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #2196f3;
+      color: white;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .option:active {
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">TRIVIA</h1>
+  <h1 id="question"></h1>
+  <div class="option-container">
+    <button class="option" onclick="checkAnswer(this.textContent)"></button>
+    <button class="option" onclick="checkAnswer(this.textContent)"></button>
+    <button class="option" onclick="checkAnswer(this.textContent)"></button>
+    <button class="option" onclick="checkAnswer(this.textContent)"></button>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        question: "Cine este autorul romanului „Mizerabilii”?",
+        options: ["Victor Hugo", "Charles Dickens", "Fyodor Dostoyevsky", "Leo Tolstoy"],
+        answer: "Victor Hugo",
+      },
+      {
+        question: "Care este capitala României?",
+        options: ["București", "Cluj-Napoca", "Timișoara", "Iași"],
+        answer: "București",
+      },
+      {
+        question: "Cine a pictat tabloul „Mona Lisa”?",
+        options: ["Leonardo da Vinci", "Michelangelo", "Raphael", "Vincent van Gogh"],
+        answer: "Leonardo da Vinci",
+      },
+      {
+        question: "Care este cel mai mare continent din lume?",
+        options: ["Africa", "Asia", "Europa", "America"],
+        answer: "Asia",
+      },
+      {
+        question: "Care este cel mai lung fluviu din lume?",
+        options: ["Nil", "Amazon", "Yangtze", "Mississippi"],
+        answer: ["Amazon", "Mississippi"], 
+      },
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+
+    function startGame() {
+      currentQuestion = 0;
+      score = 0;
+      displayQuestion();
+    }
+
+    function displayQuestion() {
+      var questionElement = document.getElementById("question");
+      var optionButtons = document.getElementsByClassName("option");
+
+      if (currentQuestion < questions.length) {
+        questionElement.textContent = questions[currentQuestion].question;
+
+        for (var i = 0; i < optionButtons.length; i++) {
+          optionButtons[i].textContent = questions[currentQuestion].options[i];
+        }
+      } else {
+        alert("Jocul s-a terminat. Ai obținut " + score + " puncte din " + questions.length);
+      }
+    }
+
+    function checkAnswer(option) {
+      var correctAnswers = questions[currentQuestion].answer;
+
+      if (Array.isArray(correctAnswers)) {
+        if (correctAnswers.includes(option)) {
+          score++;
+          alert("Corect! Ai primit un punct.");
+        } else {
+          alert("Greșit! Răspunsul corect este: " + correctAnswers.join(" sau "));
+        }
+      } else {
+        if (option === correctAnswers) {
+          score++;
+          alert("Corect! Ai primit un punct.");
+        } else {
+          alert("Greșit! Răspunsul corect este: " + correctAnswers);
+        }
+      }
+
+      currentQuestion++;
+      displayQuestion();
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
